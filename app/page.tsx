@@ -1,101 +1,140 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { FadeIn, SlideIn } from "./components/animated-components";
 import Image from "next/image";
+import { Camera, Download, DownloadCloud } from "lucide";
+import { DownloadIcon } from "lucide-react";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="flex flex-col min-h-screen bg-white text-gray-800 relative"
+    >
+      {/* Main Content */}
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <div className="relative w-full h-[60vh] md:h-[50vh]">
+          <Image
+            src="/main.jpg"
+            alt="تصویر قهرمان"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-75"
+            priority
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 lg:items-start lg:text-left lg:pl-28">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-gray-800 leading-tight">
+                ! دوئل میدان چالش و پیروزی
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-base md:text-lg lg:text-xl mb-4
+               max-w-xl text-gray-600 leading-relaxed">
+                ! چالش کن، برنده شو، بدرخش
+              </p>
+              <div className="relative w-full flex justify-center">
+              <a
+  href="https://dlduelapp.com/duelApplication.apk"
+  rel="noopener noreferrer"
+  className="flex gap-2 items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 font-bold py-4 px-10 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-3xl text-center"
+>
+  <DownloadIcon color="white" size={22} />
+  دانلود برنامه
+</a>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="container mx-auto px-4 py-8">
+          <FadeIn>
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+              دوئل چه چیزهایی داره ؟
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                title: "چالش‌های متنوع",
+                icon: "🔥",
+                description:
+                  ".در هر لحظه چالش‌های جذاب و خلاقانه را تجربه کنید",
+              },
+              {
+                title: "رقابت با دوستان",
+                icon: "🤝",
+                description:
+                  ".دوستان خود را دعوت کنید و در رقابت‌های هیجان‌انگیز برنده شوید",
+              },
+              {
+                title: "گفت‌وگو و چت",
+                icon: "💬",
+                description:
+                  ".با دوستان خود در چالش‌ها گفت‌وگو کنید و ایده‌های جدید به اشتراک بگذارید",
+              },
+              {
+                title: "محتوای جذاب",
+                icon: "🎥",
+                description:
+                  ".از ویدیوها و محتواهای سرگرم‌کننده لذت ببرید و الهام بگیرید",
+              },
+            ].map((feature, index) => (
+              <FadeIn key={index} delay={0.2 * (index + 1)}>
+                <div className="bg-gray-100 p-6 rounded-lg text-center hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="relative bg-gray-50 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">
+                آماده هستید هیجان تجربه کنید؟
+              </h2>
+              <p className="text-lg mb-8 text-gray-600">
+                ! همین حالا دوئل را دانلود کنید و ماجراجویی خود را آغاز کنید
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+            <div className="flex justify-center items-center mt-2">
+            <a
+  href="https://dlduelapp.com/duelApplication.apk"
+  rel="noopener noreferrer"
+  className="flex gap-2 items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 font-bold py-4 px-10 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-3xl text-center"
+>
+  <DownloadIcon color="white" size={22} />
+  دانلود برنامه
+</a>
+
+</div>
+
+            </FadeIn>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 py-6 text-center">
+        <p className="text-white">
+          &copy; {new Date().getFullYear()} Duel. تمامی حقوق محفوظ است
+        </p>
       </footer>
-    </div>
+    </motion.div>
   );
 }
