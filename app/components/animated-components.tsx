@@ -1,8 +1,16 @@
 'use client'
 
+import { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
-export const FadeIn = ({ children, delay = 0, duration = 0.8 }: any) => (
+// FadeIn Component
+interface FadeInProps {
+  children: ReactNode
+  delay?: number
+  duration?: number
+}
+
+export const FadeIn = ({ children, delay = 0, duration = 0.8 }: FadeInProps) => (
   <motion.div
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
@@ -12,7 +20,13 @@ export const FadeIn = ({ children, delay = 0, duration = 0.8 }: any) => (
   </motion.div>
 )
 
-export const ScaleIn = ({ children, delay = 0 }:any) => (
+// ScaleIn Component
+interface ScaleInProps {
+  children: ReactNode
+  delay?: number
+}
+
+export const ScaleIn = ({ children, delay = 0 }: ScaleInProps) => (
   <motion.div
     initial={{ scale: 0 }}
     animate={{ scale: 1 }}
@@ -22,7 +36,14 @@ export const ScaleIn = ({ children, delay = 0 }:any) => (
   </motion.div>
 )
 
-export const SlideIn = ({ children, delay = 0, direction = 'left' }:any) => (
+// SlideIn Component
+interface SlideInProps {
+  children: ReactNode
+  delay?: number
+  direction?: 'left' | 'right'
+}
+
+export const SlideIn = ({ children, delay = 0, direction = 'left' }: SlideInProps) => (
   <motion.div
     initial={{ x: direction === 'left' ? -100 : 100, opacity: 0 }}
     animate={{ x: 0, opacity: 1 }}
@@ -31,4 +52,3 @@ export const SlideIn = ({ children, delay = 0, direction = 'left' }:any) => (
     {children}
   </motion.div>
 )
-

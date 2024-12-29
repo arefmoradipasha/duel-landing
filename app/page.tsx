@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FadeIn, SlideIn } from "./components/animated-components";
+import { FadeIn } from "./components/animated-components";
 import Image from "next/image";
-import { Camera, Download, DownloadCloud } from "lucide";
+
 import { DownloadIcon } from "lucide-react";
 
 export default function LandingPage() {
@@ -33,21 +33,21 @@ export default function LandingPage() {
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="text-base md:text-lg lg:text-xl mb-4
-               max-w-xl text-gray-600 leading-relaxed">
+              <p
+                className="text-base md:text-lg lg:text-xl mb-4
+               max-w-xl text-gray-600 leading-relaxed"
+              >
                 ! چالش کن، برنده شو، بدرخش
               </p>
               <div className="relative w-full flex justify-center">
-              <a
-  href="https://dlduelapp.com/duelApplication.apk"
-  rel="noopener noreferrer"
-  className="flex gap-2 items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 font-bold py-4 px-10 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-3xl text-center"
->
-  <DownloadIcon color="white" size={22} />
-  دانلود برنامه
-</a>
-
-
+                <a
+                  href="https://dlduelapp.com/duelApplication.apk"
+                  rel="noopener noreferrer"
+                  className="flex gap-2 items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 font-bold py-4 px-10 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-3xl text-center"
+                >
+                  <DownloadIcon color="white" size={22} />
+                  دانلود برنامه
+                </a>
               </div>
             </FadeIn>
           </div>
@@ -112,18 +112,16 @@ export default function LandingPage() {
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
-            <div className="flex justify-center items-center mt-2">
-            <a
-  href="https://dlduelapp.com/duelApplication.apk"
-  rel="noopener noreferrer"
-  className="flex gap-2 items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 font-bold py-4 px-10 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-3xl text-center"
->
-  <DownloadIcon color="white" size={22} />
-  دانلود برنامه
-</a>
-
-</div>
-
+              <div className="flex justify-center items-center mt-2">
+                <a
+                  href="https://dlduelapp.com/duelApplication.apk"
+                  rel="noopener noreferrer"
+                  className="flex gap-2 items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 font-bold py-4 px-10 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-3xl text-center"
+                >
+                  <DownloadIcon color="white" size={22} />
+                  دانلود برنامه
+                </a>
+              </div>
             </FadeIn>
           </div>
         </div>
